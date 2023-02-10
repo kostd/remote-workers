@@ -1,0 +1,11 @@
+# включаем basic-аутентификацию при подключении RS-клиентом к camunda`е
+# пришлось даже сделать yml, т.к. не разобрался, как в .properties указать такую сложную композитную
+# настройку как defaultRequestHeaders (ее значение -- это коллекция заголовков в виде ключ: значение)
+feign:
+  client:
+    config:
+      default:
+        defaultRequestHeaders:
+          Authorization:
+            # это base-64 encoded demo:demo (дефолтный логин-пароль для camunda run)
+            - Basic ZGVtbzpkZW1v
