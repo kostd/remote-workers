@@ -1,6 +1,5 @@
 package org.kostd.bpms.workers.maillist
 
-import com.google.common.base.Preconditions
 import org.camunda.bpm.client.spring.annotation.ExternalTaskSubscription
 import org.camunda.bpm.client.task.ExternalTask
 import org.camunda.bpm.client.task.ExternalTaskHandler
@@ -120,6 +119,6 @@ class PrepareMailExternalTaskHandler(
                 .joinToString(","), workerProperties.errors to errors));
 
         externalTaskService.complete(externalTask, mapOf(workerProperties.mailList to emails.distinct()
-              .joinToString(","), workerProperties.errors to errors));
+                .joinToString(","), workerProperties.errors to errors));
     }
 }
